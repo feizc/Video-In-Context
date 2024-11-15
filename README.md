@@ -1,2 +1,1 @@
-# In-Context-Video-Generation
-In-Context Learning fro Video Generation
+## In-Context Learning for Video Generation
