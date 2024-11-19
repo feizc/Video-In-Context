@@ -1,0 +1,24 @@
+accelerate launch --config_file "configs/deepspeed.yaml" training/train_lora.py \
+    --pretrained_model_name_or_path '/maindata/data/shared/public/multimodal/share/zhengcong.fei/ckpts/CogVideoX-5b' \
+    --data_root "refine_comb_ytb.json" \
+    --seed 42 \
+    --train_batch_size 1 \
+    --dataloader_num_workers 0 \
+    --rank 32 \
+    --lora_alpha 64 \
+    --mixed_precision bf16 \
+    --learning_rate 1e-4 \
+    --lr_scheduler "cosine_with_restarts" \
+    --lr_warmup_steps 400 \
+    --lr_num_cycles 1 \
+    --optimizer "adamw" \
+    --gradient_accumulation_steps 32 \
+    --gradient_checkpointing \
+    --enable_slicing \
+    --enable_tiling \
+    --enable_model_cpu_offload \
+    --beta1 0.9 \
+    --beta2 0.95 \
+    --weight_decay 0.001 \
+    --max_grad_norm 1.0 \
+    --checkpointing_steps 500
