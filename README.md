@@ -7,6 +7,7 @@
     <a href="https://huggingface.co/feizhengcong/Incontext-Video"><img src="https://img.shields.io/static/v1?label=Demo&message=HuggingFace&color=green"></a> &ensp;
 </div>
 
+
 Following image generation in [IC-Lora](https://github.com/ali-vilab/In-Context-LoRA), we directly concatenate both condition and target videos into a single composite video from spacial or time dimension while using natural language to define the task.
 It can serve as a general framework for control video generation, with task-specific fine-tuning. 
 For more detailed information, please read our technique report. 
@@ -15,7 +16,7 @@ For more detailed information, please read our technique report.
 
 <table class="center">
     <tr style="font-weight: bolder;text-align:center;">
-        <td>Text</td>
+        <td>Prompt</td>
         <td>Generated video</td>
     </tr>
     <tr>
@@ -44,6 +45,69 @@ For more detailed information, please read our technique report.
   	</tr>
 </table >
 
-## Get Started 
+## Quick Start
+
+### 1. Setup repository and environment 
+
+Our environment is totally same with CogvideoX and you can install by: 
+
+```
+pip install -r requirement.txt
+```
+
+### 2. Download checkpoint
+Download the lora [checkpoint](https://huggingface.co/feizhengcong/Incontext-Video), and put it with model path variable. 
+
+### 3. Launch the inference script! 
+You can run with mini code as following or refer to `infer.py` which generate cases. 
+
+```
+from diffusers.utils import export_to_video
+from diffusers import CogVideoXPipeline 
+
+lora_path = /path/to/lora
+
+pipe = CogVideoXPipeline.from_pretrained(
+    "THUDM/CogVideoX-5b",
+    torch_dtype=torch.bfloat16
+)
+pipe.load_lora_weights(lora_path, adapter_name="cogvideox-lora")
+pipe.set_adapters(["cogvideox-lora"], [1.0]) 
+
+pipe.enable_sequential_cpu_offload()
+pipe.vae.enable_tiling()
+pipe.vae.enable_slicing()
+
+video = pipe(
+    prompt=prompt,
+    num_videos_per_prompt=1,
+    num_inference_steps=50,
+    num_frames=49,
+    guidance_scale=6,
+    generator=torch.Generator(device="cuda").manual_seed(42),
+).frames[0]
+
+export_to_video(video, "output.mp4", fps=8)
+```
+
+## Lora Fine-tuning 
+
+You can prepare the video-text pair data as [formation](https://github.com/feizc/In-Context-Video-Generalist/blob/main/training/dataset.py) and our experiments can be repeated by simply run the training scripts as:
+
+```
+sh finetune.sh 
+```
+
+## Acknowledgments 
+
+The codebase is based on the awesome [IC-Lora](https://github.com/ali-vilab/In-Context-LoRA), [CogvideoX](https://github.com/THUDM/CogVideo) and [diffusers](https://github.com/huggingface/diffusers/blob/main/src/diffusers/pipelines/cogvideo/pipeline_cogvideox.py) repos.
+
+
+
+
+
+
+
+
 
 
