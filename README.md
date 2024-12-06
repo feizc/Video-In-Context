@@ -51,7 +51,7 @@ It can serve as a general framework for control video generation, with task-spec
 </p>
 For more detailed information, please read our technique report. 
 
-## Quick Start
+## 💡 Quick Start
 
 ### 1. Setup repository and environment 
 
@@ -96,7 +96,7 @@ video = pipe(
 export_to_video(video, "output.mp4", fps=8)
 ```
 
-## Lora Fine-tuning 
+## 🔧  Lora Fine-tuning 
 
 You can training with your own lora for control tasks with finetuning scripts and our experiments can be repeated by simply run the training scripts as:
 
@@ -108,7 +108,7 @@ Before, you should prepare:
 - video-text pair data as [formation](https://github.com/feizc/In-Context-Video-Generalist/blob/main/training/dataset.py);
 - prompt template to combine different video clips;
 
-## Acknowledgments 
+## 🔗 Acknowledgments 
 
 The codebase is based on the awesome [IC-Lora](https://github.com/ali-vilab/In-Context-LoRA), [CogvideoX](https://github.com/THUDM/CogVideo), [Cogvideo-factory](https://github.com/a-r-r-o-w/cogvideox-factory), and [diffusers](https://github.com/huggingface/diffusers/blob/main/src/diffusers/pipelines/cogvideo/pipeline_cogvideox.py) repos.
 
