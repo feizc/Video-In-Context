@@ -7,12 +7,11 @@
     <a href="https://huggingface.co/feizhengcong/Incontext-Video"><img src="https://img.shields.io/static/v1?label=Demo&message=HuggingFace&color=green"></a> &ensp;
 </div>
 
+## 🔭 Introduction 
 
-Following image generation in [IC-Lora](https://github.com/ali-vilab/In-Context-LoRA), we directly concatenate both condition and target videos into a single composite video from spacial or time dimension while using natural language to define the task.
-It can serve as a general framework for control video generation, with task-specific fine-tuning. 
-For more detailed information, please read our technique report. 
-
-
+<p align="left">
+<strong>TL;DR: We explores in-context capabilities in video diffusion transformers, with minimal tuning to activate them.</strong>
+</p>
 
 <table class="center">
     <tr style="font-weight: bolder;text-align:center;">
@@ -44,6 +43,13 @@ For more detailed information, please read our technique report.
 	  </td>
   	</tr>
 </table >
+
+<p align="justify">
+  <strong>Abstract:</strong> 
+Following In-context-Lora, we directly concatenate both condition and target videos into a single composite video from spacial or time dimension while using natural language to define the task. 
+It can serve as a general framework for control video generation, with task-specific fine-tuning. More encouragingly, it can create a consistent multi-scene video more than 30 seconds without any more computation burden.  
+</p>
+For more detailed information, please read our technique report. 
 
 ## Quick Start
 
@@ -92,15 +98,19 @@ export_to_video(video, "output.mp4", fps=8)
 
 ## Lora Fine-tuning 
 
-You can prepare the video-text pair data as [formation](https://github.com/feizc/In-Context-Video-Generalist/blob/main/training/dataset.py) and our experiments can be repeated by simply run the training scripts as:
+You can training with your own lora for control tasks with finetuning scripts and our experiments can be repeated by simply run the training scripts as:
 
 ```
 sh finetune.sh 
 ```
 
+Before, you should prepare:
+- video-text pair data as [formation](https://github.com/feizc/In-Context-Video-Generalist/blob/main/training/dataset.py);
+- prompt template to combine different video clips;
+
 ## Acknowledgments 
 
-The codebase is based on the awesome [IC-Lora](https://github.com/ali-vilab/In-Context-LoRA), [CogvideoX](https://github.com/THUDM/CogVideo) and [diffusers](https://github.com/huggingface/diffusers/blob/main/src/diffusers/pipelines/cogvideo/pipeline_cogvideox.py) repos.
+The codebase is based on the awesome [IC-Lora](https://github.com/ali-vilab/In-Context-LoRA), [CogvideoX](https://github.com/THUDM/CogVideo), [Cogvideo-factory](https://github.com/a-r-r-o-w/cogvideox-factory), and [diffusers](https://github.com/huggingface/diffusers/blob/main/src/diffusers/pipelines/cogvideo/pipeline_cogvideox.py) repos.
 
 
 
