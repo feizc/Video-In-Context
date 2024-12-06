@@ -105,8 +105,8 @@ sh finetune.sh
 ```
 
 Before, you should prepare:
-- video-text pair data as [formation](https://github.com/feizc/In-Context-Video-Generalist/blob/main/training/dataset.py);
-- prompt template to combine different video clips;
+- Video-text pair data as [formation](https://github.com/feizc/In-Context-Video-Generalist/blob/main/training/dataset.py);
+- Prompt template to combine different video clips;
 
 ## 🔗 Acknowledgments 
 
