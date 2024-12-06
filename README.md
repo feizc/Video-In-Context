@@ -2,9 +2,9 @@
 
 
 <div align="left">
-    <a href="https://huggingface.co/feizhengcong/Incontext-Video"><img src="https://img.shields.io/static/v1?label=Models&message=HuggingFace&color=red"></a> &ensp;
-    <a href="https://huggingface.co/datasets/feizhengcong/Incontext-Video"><img src="https://img.shields.io/static/v1?label=Dataset&message=HuggingFace&color=blue"></a> &ensp;
-    <a href="https://huggingface.co/feizhengcong/Incontext-Video"><img src="https://img.shields.io/static/v1?label=Demo&message=HuggingFace&color=green"></a> &ensp;
+    <a href="https://huggingface.co/feizhengcong/In-context-Video-Generalist"><img src="https://img.shields.io/static/v1?label=Models&message=HuggingFace&color=red"></a> &ensp;
+    <a href="https://huggingface.co/datasets/multimodalart/panda-70m"><img src="https://img.shields.io/static/v1?label=Dataset&message=HuggingFace&color=blue"></a> &ensp;
+    <a href="https://huggingface.co/feizhengcong/In-context-Video-Generalist"><img src="https://img.shields.io/static/v1?label=Demo&message=HuggingFace&color=green"></a> &ensp;
 </div>
 
 ## 🔭 Introduction 
@@ -62,7 +62,10 @@ pip install -r requirement.txt
 ```
 
 ### 2. Download checkpoint
-Download the lora [checkpoint](https://huggingface.co/feizhengcong/Incontext-Video), and put it with model path variable. 
+Download the lora [checkpoint](https://huggingface.co/feizhengcong/In-context-Video-Generalist) from huggingface, and put it with model path variable. 
+
+We provide the scene and human loras, which generate the cases with different prompt types in technique report. 
+
 
 ### 3. Launch the inference script! 
 You can run with mini code as following or refer to `infer.py` which generate cases, after setting the path for lora.  
@@ -111,13 +114,4 @@ Before, you should prepare:
 ## 🔗 Acknowledgments 
 
 The codebase is based on the awesome [IC-Lora](https://github.com/ali-vilab/In-Context-LoRA), [CogvideoX](https://github.com/THUDM/CogVideo), [Cogvideo-factory](https://github.com/a-r-r-o-w/cogvideox-factory), and [diffusers](https://github.com/huggingface/diffusers/blob/main/src/diffusers/pipelines/cogvideo/pipeline_cogvideox.py) repos.
-
-
-
-
-
-
-
-
-
 
