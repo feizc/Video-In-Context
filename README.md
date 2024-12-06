@@ -59,7 +59,7 @@ pip install -r requirement.txt
 Download the lora [checkpoint](https://huggingface.co/feizhengcong/Incontext-Video), and put it with model path variable. 
 
 ### 3. Launch the inference script! 
-You can run with mini code as following or refer to `infer.py` which generate cases. 
+You can run with mini code as following or refer to `infer.py` which generate cases, after setting the path for lora.  
 
 ```
 from diffusers.utils import export_to_video
