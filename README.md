@@ -1,10 +1,10 @@
-# In-Context Video Generalist 
+# Video Diffusion Transformers are In-Context Learners
 
 
 <div align="left">
-    <a href="https://huggingface.co/feizhengcong/In-context-Video-Generalist"><img src="https://img.shields.io/static/v1?label=Models&message=HuggingFace&color=red"></a> &ensp;
+    <a href="https://huggingface.co/feizhengcong/Video-In-Context"><img src="https://img.shields.io/static/v1?label=Models&message=HuggingFace&color=red"></a> &ensp;
     <a href="https://huggingface.co/datasets/multimodalart/panda-70m"><img src="https://img.shields.io/static/v1?label=Dataset&message=HuggingFace&color=blue"></a> &ensp;
-    <a href="https://huggingface.co/feizhengcong/In-context-Video-Generalist"><img src="https://img.shields.io/static/v1?label=Demo&message=HuggingFace&color=green"></a> &ensp;
+    <a href="https://huggingface.co/feizhengcong/Video-In-Context"><img src="https://img.shields.io/static/v1?label=Demo&message=HuggingFace&color=green"></a> &ensp;
 </div>
 
 ## 🔭 Introduction 
