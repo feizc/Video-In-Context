@@ -49,7 +49,10 @@
 Following In-context-Lora, we directly concatenate both condition and target videos into a single composite video from spacial or time dimension while using natural language to define the task. 
 It can serve as a general framework for control video generation, with task-specific fine-tuning. More encouragingly, it can create a consistent multi-scene video more than 30 seconds without any more computation burden.  
 </p>
+
 For more detailed information, please read our technique report. 
+This is a research project, and it is recommended to try advanced products: 
+<a href="https://skyreels.ai/"><img src="https://img.shields.io/static/v1?label=Recommend&message=Application&color=orange&logo=demo"></a> &ensp; 
 
 ## 💡 Quick Start
 
@@ -111,7 +114,9 @@ Before, you should prepare:
 - Video-text pair data as [formation](https://github.com/feizc/In-Context-Video-Generalist/blob/main/training/dataset.py);
 - Prompt template to combine different video clips;
 
+
 ## 🔗 Acknowledgments 
 
 The codebase is based on the awesome [IC-Lora](https://github.com/ali-vilab/In-Context-LoRA), [CogvideoX](https://github.com/THUDM/CogVideo), [Cogvideo-factory](https://github.com/a-r-r-o-w/cogvideox-factory), and [diffusers](https://github.com/huggingface/diffusers/blob/main/src/diffusers/pipelines/cogvideo/pipeline_cogvideox.py) repos.
+
 
