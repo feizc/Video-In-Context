@@ -2,6 +2,7 @@
 
 
 <div align="left">
+    <a href="https://arxiv.org/abs/2412.10783"><img src="https://img.shields.io/static/v1?label=Paper&message=Arxiv&color=yellow"></a> &ensp;
     <a href="https://huggingface.co/feizhengcong/Video-In-Context"><img src="https://img.shields.io/static/v1?label=Models&message=HuggingFace&color=red"></a> &ensp;
     <a href="https://huggingface.co/datasets/multimodalart/panda-70m"><img src="https://img.shields.io/static/v1?label=Dataset&message=HuggingFace&color=blue"></a> &ensp;
     <a href="https://huggingface.co/feizhengcong/Video-In-Context"><img src="https://img.shields.io/static/v1?label=Demo&message=HuggingFace&color=green"></a> &ensp;
@@ -50,7 +51,7 @@ Following In-context-Lora, we directly concatenate both condition and target vid
 It can serve as a general framework for control video generation, with task-specific fine-tuning. More encouragingly, it can create a consistent multi-scene video more than 30 seconds without any more computation burden.  
 </p>
 
-For more detailed information, please read our technique report. 
+For more detailed information, please read our [technique report](https://arxiv.org/abs/2412.10783). 
 This is a research project, and it is recommended to try advanced products: 
 <a href="https://skyreels.ai/"><img src="https://img.shields.io/static/v1?label=Recommend&message=Application&color=orange&logo=demo"></a> &ensp; 
 
