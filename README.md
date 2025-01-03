@@ -1,7 +1,7 @@
 # Video Diffusion Transformers are In-Context Learners
 
 <p align="left">
-<strong>Note: this branch is support HunyuanVideo for in-context learning.</strong>
+<strong> Note: This branch is support HunyuanVideo for in-context learning.</strong>
 </p>
 
 <div align="left">
@@ -62,10 +62,10 @@ This is a research project, and it is recommended to try advanced products:
 
 ### 1. Setup repository and environment 
 
-Our environment is totally same with CogvideoX and you can install by: 
+Our environment is totally same with FastVideo and you can install by: 
 
 ```
-pip install -r requirement.txt
+/env_setup.sh fastvideo
 ```
 
 ### 2. Download checkpoint
@@ -80,8 +80,24 @@ You can run with mini code as following or refer to `infer.py` which generate ca
 
 ## 🔧  Fine-tuning 
 
+1. dataset prepareing 
+```
+bash scripts/preprocess/preprocess_hunyuan_data.sh 
+```
+
+2. training
+```
+bash scripts/finetune/finetune_hunyuan.sh
+```
+
+3. inference with fine-tuned results
+
+```
+bash scripts/inference/inference_hunyuan.sh
+```
 
 
+Finally, we provide speed as reference. 
 
 
 ## 🔗 Acknowledgments 
