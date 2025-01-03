@@ -1,5 +1,8 @@
 # Video Diffusion Transformers are In-Context Learners
 
+<p align="left">
+<strong>Note: this branch is support HunyuanVideo for in-context learning.</strong>
+</p>
 
 <div align="left">
     <a href="https://arxiv.org/abs/2412.10783"><img src="https://img.shields.io/static/v1?label=Paper&message=Arxiv&color=yellow"></a> &ensp;
@@ -74,50 +77,15 @@ We provide the scene and human loras, which generate the cases with different pr
 ### 3. Launch the inference script! 
 You can run with mini code as following or refer to `infer.py` which generate cases, after setting the path for lora.  
 
-```
-from diffusers.utils import export_to_video
-from diffusers import CogVideoXPipeline 
 
-lora_path = /path/to/lora
+## 🔧  Fine-tuning 
 
-pipe = CogVideoXPipeline.from_pretrained(
-    "THUDM/CogVideoX-5b",
-    torch_dtype=torch.bfloat16
-)
-pipe.load_lora_weights(lora_path, adapter_name="cogvideox-lora")
-pipe.set_adapters(["cogvideox-lora"], [1.0]) 
 
-pipe.enable_sequential_cpu_offload()
-pipe.vae.enable_tiling()
-pipe.vae.enable_slicing()
 
-video = pipe(
-    prompt=prompt,
-    num_videos_per_prompt=1,
-    num_inference_steps=50,
-    num_frames=49,
-    guidance_scale=6,
-    generator=torch.Generator(device="cuda").manual_seed(42),
-).frames[0]
-
-export_to_video(video, "output.mp4", fps=8)
-```
-
-## 🔧  Lora Fine-tuning 
-
-You can training with your own lora for control tasks with finetuning scripts and our experiments can be repeated by simply run the training scripts as:
-
-```
-sh finetune.sh 
-```
-
-Before, you should prepare:
-- Video-text pair data as [formation](https://github.com/feizc/In-Context-Video-Generalist/blob/main/training/dataset.py);
-- Prompt template to combine different video clips;
 
 
 ## 🔗 Acknowledgments 
 
-The codebase is based on the awesome [IC-Lora](https://github.com/ali-vilab/In-Context-LoRA), [CogvideoX](https://github.com/THUDM/CogVideo), [Cogvideo-factory](https://github.com/a-r-r-o-w/cogvideox-factory), and [diffusers](https://github.com/huggingface/diffusers/blob/main/src/diffusers/pipelines/cogvideo/pipeline_cogvideox.py) repos.
+The codebase is based on the awesome [IC-Lora](https://github.com/ali-vilab/In-Context-LoRA), [HunyuanVideo](https://github.com/Tencent/HunyuanVideo), [FastVideo](https://github.com/hao-ai-lab/FastVideo), and [diffusers](https://github.com/huggingface/diffusers/blob/main/src/diffusers/pipelines/cogvideo/pipeline_cogvideox.py) repos.
 
 
