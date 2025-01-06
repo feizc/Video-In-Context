@@ -80,7 +80,7 @@ You can run with mini code as following or refer to `infer.py` which generate ca
 
 ## 🔧  Fine-tuning 
 
-1. dataset prepareing 
+1. dataset prepareing, we use in-context dataset for preprocessing
 ```
 bash scripts/preprocess/preprocess_hunyuan_data.sh 
 ```
