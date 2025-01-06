@@ -1,0 +1,6 @@
+Four video storyboards.  [1] disgusted. [2] neutral. [3] sad. [4] angry.
+Four video storyboards.  [1] happy. [2] angry. [3] contempt. [4] happy.
+Four video storyboards.  [1] fear. [2] disgusted. [3] angry. [4] sad.
+Four video storyboards.  [1] angry. [2] sad. [3] angry. [4] happy.
+Four video storyboards.  [1] contempt. [2] fear. [3] surprised. [4] fear.
+Four video storyboards.  [1] disgusted. [2] happy. [3] disgusted. [4] sad.
