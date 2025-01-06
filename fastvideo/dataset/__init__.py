@@ -3,6 +3,7 @@ from transformers import AutoTokenizer
 from torchvision import transforms
 from torchvision.transforms import Lambda
 from fastvideo.dataset.t2v_datasets import T2V_dataset
+from fastvideo.dataset.ic_datasets import Incontext_dataset
 from fastvideo.dataset.latent_datasets import LatentDataset
 from fastvideo.dataset.transform import (
     Normalize255,
@@ -42,6 +43,14 @@ def getdataset(args):
     )
     if args.dataset == "t2v":
         return T2V_dataset(
+            args,
+            transform=transform,
+            temporal_sample=temporal_sample,
+            tokenizer=tokenizer,
+            transform_topcrop=transform_topcrop,
+        )
+    elif args.dataset == "incontext": 
+        return Incontext_dataset(
             args,
             transform=transform,
             temporal_sample=temporal_sample,

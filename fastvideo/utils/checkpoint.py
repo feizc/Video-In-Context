@@ -28,7 +28,7 @@ def save_checkpoint(model, optimizer, rank, output_dir, step, discriminator=Fals
         FullOptimStateDictConfig(offload_to_cpu=True, rank0_only=True),
     ):
         cpu_state = model.state_dict()
-        optim_state = FSDP.optim_state_dict(model, optimizer,)
+        # optim_state = FSDP.optim_state_dict(model, optimizer,)
 
     # todo move to get_state_dict
     save_dir = os.path.join(output_dir, f"checkpoint-{step}")
@@ -37,18 +37,22 @@ def save_checkpoint(model, optimizer, rank, output_dir, step, discriminator=Fals
     if rank <= 0 and not discriminator:
         weight_path = os.path.join(save_dir, "diffusion_pytorch_model.safetensors")
         save_file(cpu_state, weight_path)
-        config_dict = dict(model.config)
+        
+        config_dict = dict(model.config) 
+        if "dtype" in config_dict:
+            del config_dict["dtype"]  
+
         config_path = os.path.join(save_dir, "config.json")
         # save dict as json
         with open(config_path, "w") as f:
             json.dump(config_dict, f, indent=4)
-        optimizer_path = os.path.join(save_dir, "optimizer.pt")
-        torch.save(optim_state, optimizer_path)
+        #optimizer_path = os.path.join(save_dir, "optimizer.pt")
+        #torch.save(optim_state, optimizer_path)
     else:
         weight_path = os.path.join(save_dir, "discriminator_pytorch_model.safetensors")
         save_file(cpu_state, weight_path)
-        optimizer_path = os.path.join(save_dir, "discriminator_optimizer.pt")
-        torch.save(optim_state, optimizer_path)
+        # optimizer_path = os.path.join(save_dir, "discriminator_optimizer.pt")
+        # torch.save(optim_state, optimizer_path)
 
 
 def save_checkpoint_generator_discriminator(

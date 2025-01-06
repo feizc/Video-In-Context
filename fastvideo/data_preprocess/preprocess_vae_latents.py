@@ -21,7 +21,9 @@ def main(args):
     local_rank = int(os.getenv("RANK", 0))
     world_size = int(os.getenv("WORLD_SIZE", 1))
     print("world_size", world_size, "local rank", local_rank)
-    train_dataset = getdataset(args)
+    train_dataset = getdataset(args) 
+    # print(train_dataset[0])
+    
     sampler = DistributedSampler(
         train_dataset, rank=local_rank, num_replicas=world_size, shuffle=True
     )
@@ -62,14 +64,15 @@ def main(args):
                 item["caption"] = data["text"][idx]
                 json_data.append(item)
                 print(f"{video_name} processed")
-    dist.barrier()
-    local_data = json_data
-    gathered_data = [None] * world_size
-    dist.all_gather_object(gathered_data, local_data)
-    if local_rank == 0:
-        all_json_data = [item for sublist in gathered_data for item in sublist]
-        with open(os.path.join(args.output_dir, "videos2caption_temp.json"), "w") as f:
-            json.dump(all_json_data, f, indent=4)
+        dist.barrier()
+        if len(json_data) % 50 == 0:
+            local_data = json_data
+            gathered_data = [None] * world_size
+            dist.all_gather_object(gathered_data, local_data)
+            if local_rank == 0:
+                all_json_data = [item for sublist in gathered_data for item in sublist]
+                with open(os.path.join(args.output_dir, "videos2caption_temp.json"), "w") as f:
+                    json.dump(all_json_data, f, indent=4)
 
 
 if __name__ == "__main__":
